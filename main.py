@@ -4,6 +4,8 @@ from random import choice
 import platform
 import time
 from os import system
+from getpass import getuser
+
 
 """
     Implementaciòn del Juego Tic Tac Toe con Inteligencia Articial
@@ -18,6 +20,7 @@ matrix = [
     [0, 0, 0],
     [0, 0, 0],
 ]
+USER = getuser()
 
 
 def evaluar(estado):
@@ -229,14 +232,14 @@ def main():
     # Game over message
     if victoria(matrix, HUMANO):
         limpiar()
-        print(f'Es tu turno [{h_choice}]')
+        print(f'{USER} Es tu turno [{h_choice}]')
         hacer(matrix, c_choice, h_choice)
-        print('Felicidades, Ganaste!')
+        print(f'{USER} Felicidades, Ganaste!')
     elif victoria(matrix, COMPUTADORA):
         limpiar()
         print(f'Es turno de la computadora [{c_choice}]')
         hacer(matrix, c_choice, h_choice)
-        print('Te gane :>!')
+        print(f'Te gane {USER} :>!')
     else:
         limpiar()
         hacer(matrix, c_choice, h_choice)
