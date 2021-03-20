@@ -1,4 +1,8 @@
-# Imports
+usuario=$USER
+
+TicTacToe() {
+    python3 -c "
+
 from math import inf as infinity
 from random import choice
 import platform
@@ -7,11 +11,11 @@ from os import system
 from getpass import getuser
 
 
-"""
+'''
     Implementaciòn del Juego Tic Tac Toe con Inteligencia Articial
     Autor: Miguel Mazariegos
     Año: 2021
-"""
+'''
 
 HUMANO = -1
 COMPUTADORA = +1
@@ -20,8 +24,9 @@ matrix = [
     [0, 0, 0],
     [0, 0, 0],
 ]
-USER = getuser()
-
+#usuario = getuser()
+usuario = '$1'
+USER = usuario.upper()
 
 def evaluar(estado):
     if victoria(estado, COMPUTADORA):
@@ -167,7 +172,7 @@ def turno_del_jugador(c_choice, h_choice):
     }
 
     limpiar()
-    print(f'Es tu turno [{h_choice}]')
+    print(f'Es tu turno {USER} con la pieza [{h_choice}]')
     hacer(matrix, c_choice, h_choice)
 
     while moverse < 1 or moverse > 9:
@@ -196,7 +201,7 @@ def main():
     while h_choice != 'O' and h_choice != 'X':
         try:
             print('')
-            h_choice = input('Puedes escoger X or O\nElegida: ').upper()
+            h_choice = input(f'{USER} puedes escoger entre X o O\nElegida: ').upper()
         except (EOFError, KeyboardInterrupt):
             print('Hasta Luego')
             exit()
@@ -213,7 +218,7 @@ def main():
     limpiar()
     while primero_en_moverse != 'Y' and primero_en_moverse != 'N':
         try:
-            primero_en_moverse = input('¿Quieres ser el primero en comenzar?[y/n]: ').upper()
+            primero_en_moverse = input(f'{USER} ¿Quieres ser el primero en comenzar?[y/n]: ').upper()
         except (EOFError, KeyboardInterrupt):
             print('Hasta Luego')
             exit()
@@ -247,6 +252,11 @@ def main():
 
     exit()
 
-
 if __name__ == '__main__':
     main()
+
+"
+}
+
+
+TicTacToe $usuario
