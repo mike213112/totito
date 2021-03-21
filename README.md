@@ -8,6 +8,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mike213112/totito/master/g
 
 ## Members
 
-- [Miguel Mazariegos]
-- [Jhonatan Guzman]
-- [David Franco]
+- Miguel Mazariegos
+- Jhonatan Guzman
+- David Franco
